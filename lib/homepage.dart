@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget{
                     title: Text(
                       'BILLSPLIT',
                       style: Theme.of(context).primaryTextTheme.headline6,
+                      
                     ),
                   ),
                   SizedBox(

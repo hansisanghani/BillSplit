@@ -13,7 +13,7 @@ class GroupsNew extends StatelessWidget {
               children: <Widget>[
                 MyAppBar(
                   title: Text(
-                    'FRIENDS',
+                    'GROUPS',
                     style: Theme.of(context).primaryTextTheme.headline6,
                   ),
                 ),

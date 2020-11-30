@@ -17,27 +17,24 @@ class FriendsNew extends StatelessWidget {
                     style: Theme.of(context).primaryTextTheme.headline6,
                   ),
                 ),
-                Container(
-                  child: Text('Friend',
-                      style: TextStyle(
-                        fontSize: 25.0,
-                        color: Colors.tealAccent,
-                        fontWeight: FontWeight.bold,
-                      )),
-                  padding: EdgeInsets.all(20.0),
+                SizedBox(
+                  height: 50,
                 ),
                 Container(
                     padding: EdgeInsets.all(10.0),
+                    width:200.0,
                     child: TextField(
                       decoration: InputDecoration(
                           hintText: "Name", border: OutlineInputBorder()),
                       keyboardType: TextInputType.name,
+                      
                     )),
                 SizedBox(
                   height: 20,
                 ),
                 Container(
                     padding: EdgeInsets.all(10.0),
+                    width:400.0,
                     child: TextField(
                       decoration: InputDecoration(
                           hintText: "Amount", border: OutlineInputBorder()),
@@ -48,6 +45,7 @@ class FriendsNew extends StatelessWidget {
                 ),
                 Container(
                     padding: EdgeInsets.all(10.0),
+                    width:400.0,
                     child: TextField(
                       decoration: InputDecoration(
                           hintText: "Description",

@@ -91,15 +91,18 @@ class GroupsRecord extends StatelessWidget{
                           ),
                           SizedBox(
                             height: 20,
-                          )
+                          ),
+                          
                         ]
-                        )  
+                        )  ,
+                        
                     ]
                   ),
             ]
           )
         ]
-      )
+      ),
+      bottomNavigationBar: MyNavBar()
     );
   }
 }

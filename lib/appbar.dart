@@ -15,6 +15,7 @@ class MyAppBar extends StatelessWidget {
       height: 100.0, // in logical pixels
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       decoration: BoxDecoration(color: HexColor('#4682B4')),
+      
       // Row is a horizontal, linear layout.
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
