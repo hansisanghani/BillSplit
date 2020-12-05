@@ -1,3 +1,4 @@
+import 'friends_new.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'homepage.dart';
@@ -34,8 +35,12 @@ class FriendsRecord extends StatelessWidget{
                             width: 400.0,
                             //alignment: Alignment.center,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.grey[400],
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.grey[200],
+                              boxShadow: [BoxShadow(
+                                      color: Colors.grey,
+                                      blurRadius: 5.0,
+                                      ),]
                             ),
                             child: Padding(
                               padding: new EdgeInsets.all(10),
@@ -55,9 +60,9 @@ class FriendsRecord extends StatelessWidget{
                                 AlignPositioned(
                                   child: Text(item['name'],
                                     style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 25.0,
-                                    //fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontSize: 20.0,
+                                    //fontWeight: FontWeight.w500,
                                     )
                                   ),
                                   alignment: Alignment(-0.4,0),
@@ -71,12 +76,14 @@ class FriendsRecord extends StatelessWidget{
                                       borderRadius: BorderRadius.circular(15),
                                       color: Colors.white,
                                       border: Border.all(color: HexColor('#34F5CF')),
+                                      
                                     ),
+                                    
                                     child: Center(
                                       child:Text(item['amount'],
                                     style: TextStyle(
                                       color: HexColor('#34F5CF'),
-                                      fontSize: 18.0,
+                                      fontSize: 15.0,
                                     //fontWeight: FontWeight.bold,
                                     )
                                   ),
@@ -102,7 +109,7 @@ class FriendsRecord extends StatelessWidget{
           )
         ]
       ),
-      bottomNavigationBar: MyNavBar()
+      bottomNavigationBar: MyNavBar(link: FriendsNew())
     );
   }
 }
