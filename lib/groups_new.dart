@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'appbar.dart';
+import 'groups_records.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class GroupsNew extends StatelessWidget {
   @override
@@ -17,48 +19,42 @@ class GroupsNew extends StatelessWidget {
                     style: Theme.of(context).primaryTextTheme.headline6,
                   ),
                 ),
-                Container(
-                  child: Text('Friend',
-                      style: TextStyle(
-                        fontSize: 25.0,
-                        color: Colors.tealAccent,
-                        fontWeight: FontWeight.bold,
-                      )),
-                  padding: EdgeInsets.all(20.0),
+                SizedBox(
+                  height: 5,
                 ),
                 Container(
-                    padding: EdgeInsets.all(10.0),
+                    padding: EdgeInsets.all(20.0),
                     child: TextField(
                       decoration: InputDecoration(
                           hintText: "Name", border: OutlineInputBorder()),
                       keyboardType: TextInputType.name,
                     )),
                 SizedBox(
-                  height: 20,
+                  height: 5,
                 ),
                 Container(
-                    padding: EdgeInsets.all(10.0),
+                    padding: EdgeInsets.all(20.0),
                     child: TextField(
                       decoration: InputDecoration(
                           hintText: "Amount", border: OutlineInputBorder()),
                       keyboardType: TextInputType.name,
                     )),
                 SizedBox(
-                  height: 20,
+                  height: 5,
                 ),
                 Container(
-                    padding: EdgeInsets.all(10.0),
+                    padding: EdgeInsets.all(20.0),
                     child: TextField(
                       decoration: InputDecoration(
-                          hintText: "No of Members",
+                          hintText: "No. of Members",
                           border: OutlineInputBorder()),
                       keyboardType: TextInputType.name,
                     )),
                 SizedBox(
-                  height: 20,
+                  height: 5,
                 ),
                 Container(
-                    padding: EdgeInsets.all(10.0),
+                    padding: EdgeInsets.all(20.0),
                     child: TextField(
                       decoration: InputDecoration(
                           hintText: "Description",
@@ -66,16 +62,102 @@ class GroupsNew extends StatelessWidget {
                       keyboardType: TextInputType.name,
                     )),
                 SizedBox(
-                  height: 20,
+                  height: 5,
                 ),
-              ]),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                  Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text('Paid by me:',
+                      style: TextStyle(
+                        fontSize: 17,
+                      )
+                    )
+ 
+                    ),
+                
+                SwitchWidget(),
+                ],)
+                                
+                
+              ]
+            ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
-        backgroundColor: Colors.tealAccent,
+      // bottomNavigationBar: RaisedButton(
+      //   onPressed: () {Navigator.push(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => GroupsRecord()),
+      //     );},
+      //     color: Colors.tealAccent,
+      //     child:Text('ADD'),
+            
+          
+      // )
+        // icon: 
+        // backgroundColor: HexColor('#34F5CF'),
+        // label: ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => GroupsRecord()),
+                            );},
+        icon: Icon(Icons.add),
+        backgroundColor: HexColor('#34F5CF'),
+        label: Text('ADD'),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      resizeToAvoidBottomInset: false
     );
+  }
+}
+
+class SwitchWidget extends StatefulWidget {
+    @override
+    SwitchWidgetClass createState() => new SwitchWidgetClass();
+  }
+  
+class SwitchWidgetClass extends State {
+ 
+  bool switchControl = false;
+ 
+  void toggleSwitch(bool value) {
+ 
+      if(switchControl == false)
+      {
+        setState(() {
+          switchControl = true;
+        });
+        // Put your code here which you want to execute on Switch ON event.
+ 
+      }
+      else
+      {
+        setState(() {
+          switchControl = false;
+        });
+        // Put your code here which you want to execute on Switch OFF event.
+      }
+  }
+  
+    @override
+    Widget build(BuildContext context) {
+      return Column( 
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children:[ Transform.scale( 
+              scale: 1.5,
+              child: Switch(
+              onChanged: toggleSwitch,
+              value: switchControl,
+              activeColor: Colors.black,
+              activeTrackColor: Colors.tealAccent,
+              inactiveThumbColor: Colors.white,
+              inactiveTrackColor: Colors.grey,
+            )
+          ), 
+
+ 
+      ]);
   }
 }
