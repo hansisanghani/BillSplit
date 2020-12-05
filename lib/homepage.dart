@@ -1,3 +1,4 @@
+import 'friends_new.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'appbar.dart';
@@ -29,17 +30,17 @@ class HomePage extends StatelessWidget{
                         width: 300.0,
                         height: 300.0,
                         decoration: BoxDecoration(
-                          color: HexColor('#21D0B2'),
+                          //color: HexColor('#21D0B2'),
                           shape: BoxShape.circle,
                           //borderRadius: BorderRadius.all(Radius.circular(40)),
-                          //border: Border.all(
-                          //  width: 5,
-                          //  color: HexColor('#S2F455C'),
-                          //  style: BorderStyle.solid,
-                          //) 
+                          border: Border.all(
+                            width: 8,
+                            color: HexColor('2F455C'),
+                            style: BorderStyle.solid,
+                          ) 
                         ) ,
                         
-                        child: Text('TOTAL\nBALANCE',
+                        child: Text('TOTAL\nBALANCE\nRs.920',
                         style: TextStyle(
                           color: Colors.grey[800],
                           fontSize: 30.0,
@@ -80,7 +81,7 @@ class HomePage extends StatelessWidget{
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20.0,
-                            //fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w500,
                           )
                         ),
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
@@ -102,7 +103,7 @@ class HomePage extends StatelessWidget{
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20.0,
-                            //fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w500,
                           )
                         ),
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),
@@ -111,14 +112,14 @@ class HomePage extends StatelessWidget{
                         )
                     ]
                   ) ,
-                  SizedBox(height: 40.0),
-                  MyNavBar(),
+                  
+                  
                 ],
               )
                       
             ],
           ),
-
+          bottomNavigationBar: MyNavBar(link: FriendsNew()),
     
     );
         
