@@ -5,11 +5,31 @@ import 'homepage.dart';
 import 'bottomnavigation.dart';
 import 'appbar.dart';
 import 'package:align_positioned/align_positioned.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class GroupsRecord extends StatelessWidget{
+class GroupsRecord extends StatefulWidget{
+  @override
+  GroupsRecordPage createState() => new GroupsRecordPage();
+}
+
+class GroupsRecordPage extends State<GroupsRecord>{
+  var friends=[];
+  @override
+  void initState(){
+  FirebaseFirestore.instance.collection('groupData').get().then((QuerySnapshot querySnapshot) => {
+        querySnapshot.docs.forEach((doc) {
+            print(doc["name"]);
+            if(doc["userid"]==FirebaseAuth.instance.currentUser.uid)
+            friends.add({'name': doc["name"],'amount':doc["amount"]});
+            })
+    });
+            super.initState();
+  }
+        
   @override
   Widget build(BuildContext context){
-    var friends= [{'name':'Rhapsody','amount':'Rs. 500','type':'owe'}, {'name':'College','amount':'Rs. 280','type':'owe'}, {'name':'Dance','amount':'Rs. 320','type':'owed'}, {'name':'Ekjute','amount':'Rs. 260','type':'owe'}, ];
+    //var friends= [{'name':'Rhapsody','amount':'Rs. 500','type':'owe'}, {'name':'College','amount':'Rs. 280','type':'owe'}, {'name':'Dance','amount':'Rs. 320','type':'owed'}, {'name':'Ekjute','amount':'Rs. 260','type':'owe'}, ];
     return Scaffold(
       body: ListView(
         children: <Widget>[
@@ -79,7 +99,7 @@ class GroupsRecord extends StatelessWidget{
                                       
                                     ),
                                     child: Center(
-                                      child:Text(item['amount'],
+                                      child:Text('Rs.'+item['amount'],
                                     style: TextStyle(
                                       color: HexColor('#34F5CF'),
                                       fontSize: 15.0,

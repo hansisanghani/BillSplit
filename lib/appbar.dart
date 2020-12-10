@@ -1,6 +1,8 @@
+import 'package:Billsplit/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'homepage.dart';
+import 'sign_in.dart';
 
 class MyAppBar extends StatelessWidget {
   MyAppBar({this.title});
@@ -41,7 +43,28 @@ class MyAppBar extends StatelessWidget {
           Spacer(),
           Center(child: title, ), 
           Spacer(),
-          Spacer(),
+          Transform.scale(
+            scale: 2.0,
+            child:
+          IconButton(
+                          icon: new Image.asset('assets/log-out.png'),
+                          padding: new EdgeInsets.all(20),
+                          tooltip: 'Logout',
+                          onPressed: () {
+                            signOutGoogle().then((result) {
+          
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return LoginPage();
+                                },
+                              ),
+                            );
+                          
+                        });
+                          }
+                        ) 
+          )
         ],
       ),
     );
